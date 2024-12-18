@@ -30,39 +30,31 @@ From the above characteristic table, we can directly write the next state equati
 
 /* write all the steps invloved */
 
-1.Open quartus II and create New project wizard.
-2. Write the program in Verilog HDL file and run the program.
-3. Download the RTL viewer
-4. Now open university program VWF and download waveform after the execution.
-
-
 **PROGRAM**
 ```
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-
-module exp_6(T,clk,Q,Qbar);
-input T,clk;
-output reg Q;
-output reg Qbar;
-initial Q=0;
-initial Qbar=1;
-always @(posedge clk)
-begin 
-Q=(T&(~Q))|((~T)&Q);
-Qbar=~Q;
-end
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+ Developed by: Savish R
+RegisterNumber: 24900837
+*/
+module t_ff (
+    input clk,    
+    input reset,  
+    input t,      
+    output reg q  
+);
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            q <= 1'b0; 
+        else if (t)
+            q <= ~q; 
+    end
 endmodule
-Developed by: keerthika A
-RegisterNumber:24900898
 ```
 **RTL LOGIC FOR FLIPFLOPS**
-
-![Screenshot (21)](https://github.com/user-attachments/assets/4010124a-6a79-49a5-808c-cb11e5ccbc7f)
+![output09(de)](https://github.com/user-attachments/assets/37ec0b4f-45eb-4593-ab51-44ea5a748820)
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-
-![Screenshot (22)](https://github.com/user-attachments/assets/765272ee-bfa3-4f29-a63a-4fdafb5a99fd)
+![waveform09(de)](https://github.com/user-attachments/assets/f5d6246b-3473-4d55-9fb0-9abd8a205b4f)
 
 **RESULTS**
-
 Thus the Flip flop designed and the truth tables is verified using Quartus software.
